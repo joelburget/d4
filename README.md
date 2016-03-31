@@ -6,13 +6,13 @@
 
 * Selections (-ish)
 * Transitions
-* Scales
 * Shape generation
 * Axes
 * Layouts
 
 ### What's not
 
+* Scales
 * (Most) Array operations (get these from elsewhere)
 * Math (get from D3)
 * Loading external resources (get from D3)

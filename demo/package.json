@@ -1,0 +1,19 @@
+{
+  "name": "d4-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^3.5.16",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "devDependencies": {
+    "dsv-loader": "^1.0.3"
+  }
+}
