@@ -1,1 +1,1 @@
-import './bar';
+import './dynamic-bar';

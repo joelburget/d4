@@ -11,8 +11,10 @@
   "homepage": "https://github.com/gaearon/react-hot-boilerplate",
   "dependencies": {
     "d3": "^3.5.16",
+    "immutable": "^3.7.6",
     "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react-dom": "^0.14.8",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.20",
