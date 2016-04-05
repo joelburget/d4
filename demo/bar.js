@@ -21,7 +21,7 @@ const barWidth = width / data.length;
 
 function BarChart() {
   const bars = data.map(({name, value}, i) => (
-    <g transform={`translate(${i * barWidth}, 0)`}>
+    <g transform={`translate(${i * barWidth}, 0)`} key={name}>
       <rect y={y(value)} height={height - y(value)} width={barWidth - 1} />
       <text x={barWidth / 2} y={y(value) + 3} dy=".75em">
         {value}

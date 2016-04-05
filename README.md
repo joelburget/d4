@@ -2,6 +2,10 @@
 
 **D4.js** is a JavaScript library for declaratively displaying data. It replicates a small subset of [D3.js](https://d3js.org)'s functionality.
 
+## Why?
+
+This is an experiment in replacing the mutative style of d3 with a more declarative style. We use React to handle rendering, which makes most of the complexity go away.
+
 ### What's here
 
 * Selections (-ish)

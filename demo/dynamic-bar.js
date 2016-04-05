@@ -16,8 +16,8 @@ const data = Immutable.OrderedMap(
 function Button({ onClick, children }) {
   return (
     <g onClick={onClick}>
-      <rect x="20" y="1" width="100" height="22" />
-      <text x="25" y="16">{children}</text>
+      <rect x="20" y="1" width="100" height="22" className="button" />
+      <text x="25" y="16" dy=".75em">{children}</text>
     </g>
   );
 }
@@ -39,8 +39,16 @@ class BarChart extends React.Component {
     const barWidth = width / data.size;
 
     const bars = data.entrySeq().map(([name, value], i) => (
-      <g transform={`translate(${i * barWidth}, 0)`}>
-        <rect y={y(value)} height={height - y(value)} width={barWidth - 1} />
+      <g
+        transform={`translate(${i * barWidth}, 0)`}
+        key={name}
+      >
+        <rect
+          y={y(value)}
+          height={height - y(value)}
+          width={barWidth - 1}
+          className="bar"
+        />
         <text x={barWidth / 2} y={y(value) + 3} dy=".75em">
           {value}
         </text>
