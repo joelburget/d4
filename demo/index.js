@@ -1,1 +1,1 @@
-import './dynamic-bar';
+import './now';
