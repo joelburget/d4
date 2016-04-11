@@ -1,1 +1,1 @@
-import './voronoi-color-mesh';
+import './population-chloropleth';

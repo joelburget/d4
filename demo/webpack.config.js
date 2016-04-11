@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.json$/,
         loaders: ['json'],
-        include: path.join(__dirname, 'data')
+        include: path.join(__dirname, '../data')
       }
     ]
   }

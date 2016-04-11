@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import d3 from 'd3';
 import topojson from 'topojson';
 
-import world from 'json!../data/world-50m.json';
+import world from '../data/world-50m.json';
 
 const width = 960;
 const height = 960;
