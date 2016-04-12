@@ -28,7 +28,7 @@ class DynamicHexbin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {points};
-    window.setTimeout(() => { this._update(); }, 20);
+    window.setInterval(() => { this._update(); }, 20);
   }
 
   _update() {
