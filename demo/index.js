@@ -1,1 +1,1 @@
-import './population-chloropleth';
+import './dynamic-hexbin';
