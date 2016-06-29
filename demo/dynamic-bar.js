@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import d3 from 'd3';
+import scale from 'd3-scale';
 import preData from 'dsv?delimiter=\t!../data/bar.tsv';
 import uuid from 'uuid';
 
@@ -32,7 +32,7 @@ class BarChart extends React.Component {
     const {data} = this.state;
     const maxDatum = data.max();
 
-    const y = d3.scale.linear()
+    const y = scale.scaleLinear()
       .domain([0, maxDatum])
       .range([height, 0]);
 

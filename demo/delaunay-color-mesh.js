@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import poissonDiscSampler from 'poisson-disc-sampler';
-import d3 from 'd3';
+import {voronoi as d3Voronoi} from 'd3-voronoi';
+import {lab} from 'd3-color';
+import {polygonCentroid} from 'd3-polygon';
 
 const width = 960;
 const height = 500;
@@ -14,25 +16,23 @@ while (sample = sampler()) {
   samples.push(sample);
 }
 
-var voronoi = d3.geom.voronoi()
-  .clipExtent([[-1, -1], [width + 1, height + 1]]);
+var voronoi = d3Voronoi()
+  .extent([[-1, -1], [width + 1, height + 1]]);
 
 function color([x, y]) {
   const dx = x - width / 2;
   const dy = y - height / 2;
 
-  // TODO(joel) replace with color package
-  return d3.lab(100 - (dx * dx + dy * dy) / 5000, dx / 10, dy / 10);
+  return lab(100 - (dx * dx + dy * dy) / 5000, dx / 10, dy / 10);
 }
 
 function Mesh() {
   const paths = voronoi.triangles(samples)
-    .map(d3.geom.polygon)
     .map(sample => (
       <path
         d={`M${sample.join('L')}Z`}
-        fill={color(sample.centroid())}
-        stroke={color(sample.centroid())}
+        fill={color(polygonCentroid(sample))}
+        stroke={color(polygonCentroid(sample))}
       />
     ));
 

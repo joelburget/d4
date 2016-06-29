@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import d3 from 'd3';
+import {scaleLinear} from 'd3-scale';
 import preData from 'dsv?delimiter=\t!../data/bar.tsv';
 
 const width = 960;
@@ -13,7 +13,7 @@ console.log(data)
 
 const maxDatum = Math.max(...data.map(datum => datum.value));
 
-const y = d3.scale.linear()
+const y = scaleLinear()
   .domain([0, maxDatum])
   .range([height, 0]);
 

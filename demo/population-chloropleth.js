@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import d3 from 'd3';
+import {quantile} from 'd3-array';
+import {scaleLog} from 'd3-scale';
+import {interpolateHcl} from 'd3-interpolate';
+import {geoPath} from 'd3-geo';
 import topojson from 'topojson';
 
 import us from '../data/us-albers.json';
@@ -8,11 +12,11 @@ import us from '../data/us-albers.json';
 const width = 960;
 const height = 500;
 
-const color = d3.scale.log()
+const color = scaleLog()
   .range(["hsl(62,100%,90%)", "hsl(228,30%,20%)"])
-  .interpolate(d3.interpolateHcl);
+  .interpolate(interpolateHcl);
 
-const path = d3.geo.path()
+const path = geoPath()
   .projection(null);
 
 const counties = topojson.feature(us, us.objects.counties).features;
@@ -22,7 +26,7 @@ const densities = counties
   .map(d => { return d.properties.density = d.properties.pop / path.area(d); })
   .sort((a, b) => a - b);
 
-color.domain([d3.quantile(densities, .01), d3.quantile(densities, .99)]);
+color.domain([quantile(densities, .01), quantile(densities, .99)]);
 
 function Population() {
   const paths = counties.map(county => (

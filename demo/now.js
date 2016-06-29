@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import d3 from 'd3';
+import {geoAzimuthalEquidistant, geoPath, geoGraticule} from 'd3-geo';
+import {utcDay} from 'd3-time';
 import topojson from 'topojson';
 
 import world from '../data/world-50m.json';
@@ -8,21 +9,21 @@ import world from '../data/world-50m.json';
 const width = 960;
 const height = 960;
 
-const projection = d3.geo.azimuthalEquidistant()
+const projection = geoAzimuthalEquidistant()
   .scale(150)
   .translate([width / 2, height / 2])
   .clipAngle(180 - 1e-3)
   .rotate([0, 90])
   .precision(.1);
 
-const path = d3.geo.path()
+const path = geoPath()
   .projection(projection);
 
-const graticule = d3.geo.graticule();
+const graticule = geoGraticule();
 
 function World() {
   const now = new Date();
-  const today = d3.time.day.utc(now);
+  const today = utcDay(now);
   const translate1 = `translate(${width / 2}, ${height / 2})`;
   const rotate = `rotate(${(now - today) / (1000 * 60 * 60 * 24) * 360 - 180})`;
   const translate2 = `translate(${-width / 2}, ${ -height / 2})`;

@@ -10,12 +10,20 @@
   "license": "ISC",
   "homepage": "https://github.com/gaearon/react-hot-boilerplate",
   "dependencies": {
-    "d3": "^3.5.16",
+    "d3": ">=4.0.0",
+    "d3-array": "^1.0.0",
+    "d3-color": "^1.0.0",
+    "d3-geo": "^1.0.0",
+    "d3-interpolate": "^1.0.1",
+    "d3-polygon": "^1.0.0",
+    "d3-scale": "^1.0.0",
+    "d3-time": "^1.0.0",
+    "d3-voronoi": "^1.0.0",
     "immutable": "^3.7.6",
+    "poisson-disc-sampler": "^1.1.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "topojson": "^1.6.24",
-    "poisson-disc-sampler": "^1.1.0",
     "uuid": "^2.0.1"
   },
   "devDependencies": {
