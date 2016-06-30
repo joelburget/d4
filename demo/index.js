@@ -1,1 +1,1 @@
-import './population-chloropleth';
+import './drag-and-zoom';

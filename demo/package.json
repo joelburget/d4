@@ -10,9 +10,11 @@
   "license": "ISC",
   "homepage": "https://github.com/gaearon/react-hot-boilerplate",
   "dependencies": {
+    "aphrodite": "^0.4.0",
     "d3": ">=4.0.0",
     "d3-array": "^1.0.0",
     "d3-color": "^1.0.0",
+    "d3-drag": "^1.0.0",
     "d3-geo": "^1.0.0",
     "d3-interpolate": "^1.0.1",
     "d3-polygon": "^1.0.0",

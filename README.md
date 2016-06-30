@@ -1,10 +1,17 @@
-# Data-Driven Declarative Documents
+# d4 -- *Declarative* Data-Driven Documents
 
-**D4.js** is a JavaScript library for declaratively displaying data. It replicates a small subset of [D3.js](https://d3js.org)'s functionality.
+This is a demonstration of authoring d3-like documents in a declarative style.
+We're still able to use most of d3's functionality, but avoiding the mutable
+core. Instead, we use React to specify the svg we want to see.
 
 ## Why?
 
-This is an experiment in replacing the mutative style of d3 with a more declarative style. We use React to handle rendering, which makes most of the complexity go away.
+d3 can produce fantastic results. Look no further than [Mike Bostock's
+blocks](https://bl.ocks.org/mbostock) for some examples. Unfortunately, I
+always find d3 code difficult to understand and extend, in the same way I used
+to find code difficult ot approach before React forced a declarative style. By
+using React for data-driven documents, we can improve comprehension and
+performance, and use tools from the React ecosystem.
 
 ### What's here
 
