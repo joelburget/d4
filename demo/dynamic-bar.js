@@ -1,7 +1,6 @@
 import Immutable from 'immutable';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import scale from 'd3-scale';
+import {scaleLinear} from 'd3-scale';
 import preData from 'dsv?delimiter=\t!../data/bar.tsv';
 import uuid from 'uuid';
 
@@ -22,7 +21,7 @@ function Button({ onClick, children }) {
   );
 }
 
-class BarChart extends React.Component {
+export default class BarChart extends React.Component {
   constructor() {
     super();
     this.state = {data};
@@ -32,7 +31,7 @@ class BarChart extends React.Component {
     const {data} = this.state;
     const maxDatum = data.max();
 
-    const y = scale.scaleLinear()
+    const y = scaleLinear()
       .domain([0, maxDatum])
       .range([height, 0]);
 
@@ -80,5 +79,3 @@ class BarChart extends React.Component {
     this.setState({ data });
   }
 }
-
-ReactDOM.render(<BarChart />, document.getElementById('d4'));

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import poissonDiscSampler from 'poisson-disc-sampler';
 import {voronoi as d3Voronoi} from 'd3-voronoi';
 import {lab} from 'd3-color';
@@ -7,8 +6,9 @@ import {polygonCentroid} from 'd3-polygon';
 
 const width = 960;
 const height = 500;
+const radius = 30;
 
-const sampler = poissonDiscSampler(width, height, 30);
+const sampler = poissonDiscSampler(width, height, radius);
 const samples = [];
 let sample;
 
@@ -26,8 +26,9 @@ function color([x, y]) {
   return lab(100 - (dx * dx + dy * dy) / 5000, dx / 10, dy / 10);
 }
 
-function Mesh() {
-  const paths = voronoi.triangles(samples)
+export default function Mesh() {
+  const paths = voronoi(samples)
+    .links()
     .map(sample => (
       <path
         d={`M${sample.join('L')}Z`}
@@ -42,5 +43,3 @@ function Mesh() {
     </svg>
   );
 }
-
-ReactDOM.render(<Mesh />, document.getElementById('d4'));

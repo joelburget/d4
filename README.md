@@ -38,3 +38,9 @@ performance, and use tools from the React ecosystem.
 * Geography
 * Geometry
 * Behaviors
+
+Unfortunately, some d3 code can't be reused without more work. For example, I'd love to use d3-zoom:
+
+> The zoom behavior implemented by d3-zoom is a convenient but flexible abstraction for enabling pan-and-zoom on selections. It handles a surprising variety of input events and browser quirks. The zoom behavior is agnostic about the DOM, so you can use it with SVG, HTML or Canvas.
+
+Unfortunately, it expects to be used with a selection: `selection.call(d3.zoom().on("zoom", zoomed));`.

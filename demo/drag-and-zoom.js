@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import d3zoom from 'd3-zoom';
 
 const width = 960;
 const height = 500;
@@ -22,7 +22,7 @@ for (let i = 0; i < 2000; i++) {
   points[i] = f(i);
 }
 
-class DragAndZoom extends React.Component {
+export default class DragAndZoom extends React.Component {
   constructor(props) {
     super(props);
 
@@ -82,5 +82,3 @@ class DragAndZoom extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<DragAndZoom />, document.getElementById('d4'));

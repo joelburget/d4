@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {quantile} from 'd3-array';
 import {scaleLog} from 'd3-scale';
 import {interpolateHcl} from 'd3-interpolate';
@@ -27,7 +26,7 @@ const densities = counties
 
 color.domain([quantile(densities, .01), quantile(densities, .99)]);
 
-function Population() {
+export default function Population() {
   const paths = counties.map(county => (
     <path
       key={county.id}
@@ -44,5 +43,3 @@ function Population() {
     </svg>
   );
 }
-
-ReactDOM.render(<Population />, document.getElementById('d4'));
