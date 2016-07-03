@@ -55,7 +55,7 @@ export default class DynamicHexbin extends React.Component {
     ));
 
     return (
-      <svg width={width} height={height}>
+      <svg width={width} height={height} style={{backgroundColor: 'white'}}>
         <g className="hexagons">
           {hexagons}
         </g>

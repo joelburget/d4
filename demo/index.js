@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {RadioGroup, Radio} from 'react-radio-group'
+import ReactMarkdown from 'react-markdown';
 
 import BarChart from './bar';
 import Delaunay from './delaunay-color-mesh';
@@ -9,6 +10,7 @@ import DynamicHexbin from './dynamic-hexbin';
 import PopulationChloropleth from './population-chloropleth';
 import TileBoundingBox from './tile-bounding-box';
 import Voronoi from './voronoi-color-mesh';
+import Readme from 'raw!../README.md'
 
 const componentMap = {
   BarChart,
@@ -34,11 +36,7 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <p>
-This is a demonstration of authoring d3-like documents in a declarative style.
-We're still able to use most of d3's functionality, but avoiding the mutable
-core. Instead, we use React to specify the svg we want to see.
-        </p>
+        <ReactMarkdown source={Readme} />
         <RadioGroup
           name="demo"
           selectedValue={this.state.selected}
@@ -52,6 +50,7 @@ core. Instead, we use React to specify the svg we want to see.
           <label><Radio value="Voronoi" />voronoi color mesh</label>
         </RadioGroup>
         {React.createElement(componentMap[this.state.selected])}
+        <ReactMarkdown source="Style inspired by [jlord/hello](https://github.com/jlord/hello)" />
       </div>
     );
   }

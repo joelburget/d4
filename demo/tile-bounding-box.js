@@ -75,7 +75,7 @@ export default function TileMap() {
   const style = {width, height, position: 'absolute', overflow: 'hidden'};
 
   return (
-    <div>
+    <div style={{position: 'relative'}}>
       <div style={style}>
         {imgs}
       </div>

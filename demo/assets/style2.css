@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/mononoki-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/mononoki-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/mononoki-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/mononoki-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/mononoki-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/mononoki-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/mononoki-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/mononoki-Italic.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/mononoki-Italic.ttf')  format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/mononoki-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/mononoki-BoldItalic.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/mononoki-BoldItalic.ttf')  format('truetype'); /* Safari, Android, iOS */
+    font-weight: bold;
+    font-style: italic;
+}
+
+body {font-family: mononoki, Helvetica Neue, sans-serif; margin: 0 auto; line-height: 2em; padding: 12px; box-sizing: border-box; color: #333; overflow: auto; background-color: #fdf6e3; padding: 0;
+
+  /*
+background: #ffded1;
+background: -moz-linear-gradient(-45deg,  #ffded1 0%, #ffded1 50%, #ffc5af 50%, #ffc5af 100%);
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffded1), color-stop(50%,#ffded1), color-stop(50%,#ffc5af), color-stop(100%,#ffc5af));
+background: -webkit-linear-gradient(-45deg,  #ffded1 0%,#ffded1 50%,#ffc5af 50%,#ffc5af 100%);
+background: -o-linear-gradient(-45deg,  #ffded1 0%,#ffded1 50%,#ffc5af 50%,#ffc5af 100%);
+background: -ms-linear-gradient(-45deg,  #ffded1 0%,#ffded1 50%,#ffc5af 50%,#ffc5af 100%);
+background: linear-gradient(135deg,  #ffded1 0%,#ffded1 50%,#ffc5af 50%,#ffc5af 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffded1', endColorstr='#ffc5af',GradientType=1 );
+*/
+
+}
+
+body, html {height: 100%;}
+
+.wrapper {box-sizing: border-box; height: 100%; overflow: auto; }
+
+
+a {text-decoration: none; color: #333; border-bottom: 3px solid #0068FF;}
+a:hover {color: #0068FF}
+p {font-weight: 200; font-size: 20px;}
+
+h1 {
+  font-family: mononoki;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 12px;
+  border: 4px solid #0068FF;
+  color: #0068FF;
+  margin-bottom: 60px;
+  line-height: 1.4;
+}
+
+.container {margin: 0 auto; max-width: 1100px; padding: 120px 12px 50px; overflow: auto;}
+article {padding: 60px;}
+article::before {
+  content: '\2601';
+  position: relative;
+  top: 0;
+  left: -30px;
+  color: #0068FF;
+  font-size: 24px;
+}
+article::after {
+  content: '\2A55\2A55\2A55\2A55';
+  position: relative;
+  top: 40px;
+  left: 300px;
+  color: #0068FF;
+  font-size: 44px;
+}
+hr {border-bottom: 3px solid #0068FF;}
+
+.meta {text-transform: uppercase; font-family: Arial, Courier New, Source Sans Pro, sans-serif; font-size: 10px; letter-spacing: .15em;}
+.meta a:hover {color: #333;}
+
+.inline-list {list-style: none; margin: 0; padding: 0;}
+.inline-list li {display: inline-block;}
+
+footer .inline-list li {margin-right: 40px;}
+footer a {border: none; color: #0068FF;}
+footer {margin: 0 auto; position: absolute; bottom: 55%; right: -255px; padding: 40px 0 0 0; width: 600px; -webkit-transform: rotate(-90deg);}
