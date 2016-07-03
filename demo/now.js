@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {geoAzimuthalEquidistant, geoPath, geoGraticule} from 'd3-geo';
 import {utcDay} from 'd3-time';
 import topojson from 'topojson';
@@ -21,7 +20,7 @@ const path = geoPath()
 
 const graticule = geoGraticule();
 
-function World() {
+export default function World() {
   const now = new Date();
   const today = utcDay(now);
   const translate1 = `translate(${width / 2}, ${height / 2})`;
@@ -57,5 +56,3 @@ function World() {
     </svg>
   );
 }
-
-ReactDOM.render(<World />, document.getElementById('d4'));
