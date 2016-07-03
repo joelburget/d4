@@ -55,22 +55,13 @@ function Mesh() {
 }
 ```
 
+We replace the mutating `select`, `selectAll`, `enter`, `append`, `data`, `attr`, and `style` with familiar React rendering of the points.
+
+Animation is more complicated, but again, React can help. By using keys and the `ReactCSSTransitionGroup`, TODO
+
 ## Still using d3
 
-d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a dozen d3 packages.
-
-* d3-array
-* d3-color
-* d3-drag
-* d3-geo
-* d3-hexbin
-* d3-interpolate
-* d3-polygon
-* d3-random
-* d3-scale
-* d3-tile
-* d3-time
-* d3-voronoi
+d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a [dozen d3 packages](https://github.com/joelburget/d4/blob/master/package.json).
 
 ### What's here
 

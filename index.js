@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {RadioGroup, Radio} from 'react-radio-group'
-import ReactMarkdown from 'react-markdown';
 
 import BarChart from './demo/bar';
 import Delaunay from './demo/delaunay-color-mesh';
@@ -12,6 +11,7 @@ import TileBoundingBox from './demo/tile-bounding-box';
 import Voronoi from './demo/voronoi-color-mesh';
 import Now from './demo/now';
 
+import Markdown from './md';
 import Readme from 'raw!./README.md'
 
 const componentMap = {
@@ -39,7 +39,7 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <ReactMarkdown source={Readme} />
+        <Markdown source={Readme} />
         <RadioGroup
           name="demo"
           selectedValue={this.state.selected}
@@ -54,7 +54,7 @@ class Page extends React.Component {
           <label><Radio value="Now" />now</label>
         </RadioGroup>
         {React.createElement(componentMap[this.state.selected])}
-        <ReactMarkdown source="Style inspired by [jlord/hello](https://github.com/jlord/hello)" />
+        <Markdown source="Style inspired by [jlord/hello](https://github.com/jlord/hello)" />
       </div>
     );
   }
