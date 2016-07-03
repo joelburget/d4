@@ -1,8 +1,9 @@
-# d4 -- *Declarative* Data-Driven Documents
+# d4 -- **Declarative** Data-Driven Documents
 
-This is a demonstration of authoring d3-like documents in a declarative style.
-We're still able to use most of d3's functionality, but avoiding the mutable
-core. Instead, we use React to specify the svg we want to see.
+By using React, we can produce data-driven documents (ala d3) that are
+performant and understandable. This is *not* a library, but rather a
+demonstration that it's possible (and preferable) to use React instead of the
+core of d3.
 
 ## Why?
 
@@ -12,6 +13,64 @@ always find d3 code difficult to understand and extend, in the same way I used
 to find code difficult ot approach before React forced a declarative style. By
 using React for data-driven documents, we can improve comprehension and
 performance, and use tools from the React ecosystem.
+
+## How does it work?
+
+We replace the core d3 interaction of [Enter, Update, Exit](https://medium.com/@c_behrens/enter-update-exit-6cafc6014c36#.yty2g8g0e) with, well, `render`. Let's first see an example.
+
+### d3
+
+```javascript
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.selectAll("path")
+    .data(voronoi(samples).polygons())
+  .enter().append("path")
+    .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+    .style("fill", function(d) { return color(d.point); })
+    .style("stroke", function(d) { return color(d.point); });
+```
+
+### d4
+
+```javascript
+function Mesh() {
+  const paths = voronoi(samples)
+    .polygons()
+    .map(sample => (
+      <path
+        d={`M${sample.join('L')}Z`}
+        fill={color(sample.data)}
+        stroke={color(sample.data)}
+      />
+    ));
+
+  return (
+    <svg width={width} height={height}>
+      {paths}
+    </svg>
+  );
+}
+```
+
+## Still using d3
+
+d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a dozen d3 packages.
+
+* d3-array
+* d3-color
+* d3-drag
+* d3-geo
+* d3-hexbin
+* d3-interpolate
+* d3-polygon
+* d3-random
+* d3-scale
+* d3-tile
+* d3-time
+* d3-voronoi
 
 ### What's here
 

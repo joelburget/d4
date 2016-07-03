@@ -39,7 +39,7 @@
     font-style: italic;
 }
 
-body {font-family: mononoki, Helvetica Neue, sans-serif; margin: 0 auto; line-height: 2em; padding: 12px; box-sizing: border-box; color: #333; overflow: auto; background-color: #fdf6e3; padding: 0;
+body {font-family: mononoki, Helvetica Neue, sans-serif; margin: 0 auto; line-height: 2em; box-sizing: border-box; color: #333; overflow: auto; background-color: #fffcf3; padding: 0;
 
   /*
 background: #ffded1;
@@ -59,20 +59,25 @@ body, html {height: 100%;}
 .wrapper {box-sizing: border-box; height: 100%; overflow: auto; }
 
 
-a {text-decoration: none; color: #333; border-bottom: 3px solid #0068FF;}
-a:hover {color: #0068FF}
+a {text-decoration: none; color: #333; border-bottom: 3px solid #5896c1;}
+a:hover {color: #5896c1}
 p {font-weight: 200; font-size: 20px;}
 
 h1 {
   font-family: mononoki;
   font-size: 45px;
   text-transform: uppercase;
-  font-weight: 900;
-  padding: 12px;
-  border: 4px solid #0068FF;
-  color: #0068FF;
+  font-weight: 500;
+  padding: 24px;
+  border: 4px solid #5896c1;
+  color: #5896c1;
   margin-bottom: 60px;
   line-height: 1.4;
+}
+
+.jsorg {
+  border-bottom: none;
+  margin: 12px;
 }
 
 .container {margin: 0 auto; max-width: 1100px; padding: 120px 12px 50px; overflow: auto;}
@@ -82,7 +87,7 @@ article::before {
   position: relative;
   top: 0;
   left: -30px;
-  color: #0068FF;
+  color: #5896c1;
   font-size: 24px;
 }
 article::after {
@@ -90,10 +95,10 @@ article::after {
   position: relative;
   top: 40px;
   left: 300px;
-  color: #0068FF;
+  color: #5896c1;
   font-size: 44px;
 }
-hr {border-bottom: 3px solid #0068FF;}
+hr {border-bottom: 3px solid #5896c1;}
 
 .meta {text-transform: uppercase; font-family: Arial, Courier New, Source Sans Pro, sans-serif; font-size: 10px; letter-spacing: .15em;}
 .meta a:hover {color: #333;}
@@ -102,5 +107,5 @@ hr {border-bottom: 3px solid #0068FF;}
 .inline-list li {display: inline-block;}
 
 footer .inline-list li {margin-right: 40px;}
-footer a {border: none; color: #0068FF;}
+footer a {border: none; color: #5896c1;}
 footer {margin: 0 auto; position: absolute; bottom: 55%; right: -255px; padding: 40px 0 0 0; width: 600px; -webkit-transform: rotate(-90deg);}
