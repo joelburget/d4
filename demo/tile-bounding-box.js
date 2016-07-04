@@ -5,7 +5,7 @@ import {geoMercator, geoPath} from 'd3-geo';
 import {tile} from 'd3-tile';
 import topojson from 'topojson';
 
-import us from '../data/us.json';
+import makeRequest from './make-request';
 
 const pi = Math.PI;
 const tau = 2 * pi;
@@ -39,11 +39,11 @@ const tiles = tile()
   .translate([tx, ty])
   ();
 
-const states = topojson.feature(us, us.objects.states).features;
-
 const path = geoPath().projection(projection);
 
-export default function TileMap() {
+export default makeRequest('data/us.json', function TileMap({data: us}) {
+  const states = topojson.feature(us, us.objects.states).features;
+
   const imgs = tiles.map(tile => {
     const style = {
       position: 'absolute',
@@ -84,4 +84,4 @@ export default function TileMap() {
       </svg>
     </div>
   );
-}
+});

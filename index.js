@@ -45,8 +45,6 @@ class Page extends React.Component {
           selectedValue={this.state.selected}
           onChange={this.handleChange}
         >
-          <label><Radio value="BarChart" />bar chart</label>
-          <label><Radio value="DynamicBarChart" />dynamic bar chart</label>
           <label><Radio value="DynamicHexbin" />dynamic hexbin</label>
           <label><Radio value="PopulationChloropleth" />population chloropleth</label>
           <label><Radio value="TileBoundingBox" />tile bounding box</label>

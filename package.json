@@ -24,6 +24,7 @@
     "d3-tile": "0.0.3",
     "d3-time": "^1.0.0",
     "d3-voronoi": "^1.0.0",
+    "fetch": "^1.1.0",
     "immutable": "^3.7.6",
     "markdown-it": "^7.0.0",
     "markdown-it-highlightjs": "^2.0.0",

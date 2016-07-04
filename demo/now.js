@@ -3,7 +3,9 @@ import {geoAzimuthalEquidistant, geoPath, geoGraticule} from 'd3-geo';
 import {utcDay} from 'd3-time';
 import topojson from 'topojson';
 
-import world from '../data/world-50m.json';
+import makeRequest from './make-request';
+
+// import world from '../data/world-50m.json';
 
 const width = 960;
 const height = 960;
@@ -20,7 +22,7 @@ const path = geoPath()
 
 const graticule = geoGraticule();
 
-export default function World() {
+export default makeRequest('data/world-50m.json', function World({data: world}) {
   const now = new Date();
   const today = utcDay(now);
   const translate1 = `translate(${width / 2}, ${height / 2})`;
@@ -55,4 +57,4 @@ export default function World() {
       </g>
     </svg>
   );
-}
+});
