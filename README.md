@@ -61,7 +61,9 @@ Animation is more complicated, but again, React can help. By using keys and the 
 
 ## Still using d3
 
-d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a [dozen d3 packages](https://github.com/joelburget/d4/blob/master/package.json).
+d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a [dozen d3 packages](https://github.com/joelburget/d4/blob/master/package.json). d3 is expecially useful for calculating layouts and colors.
+
+There are some pieces of d3 that I would love to use but aren't easily portable. For example, [d3-drag](https://github.com/d3/d3-drag) and [d3-zoom](https://github.com/d3/d3-zoom) smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg `selection.call(d3.zoom().on("zoom", zoomed));`).
 
 ### What's here
 
@@ -88,9 +90,3 @@ d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue
 * Geography
 * Geometry
 * Behaviors
-
-Unfortunately, some d3 code can't be reused without more work. For example, I'd love to use d3-zoom:
-
-> The zoom behavior implemented by d3-zoom is a convenient but flexible abstraction for enabling pan-and-zoom on selections. It handles a surprising variety of input events and browser quirks. The zoom behavior is agnostic about the DOM, so you can use it with SVG, HTML or Canvas.
-
-Unfortunately, it expects to be used with a selection: `selection.call(d3.zoom().on("zoom", zoomed));`.

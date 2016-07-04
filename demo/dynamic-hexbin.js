@@ -19,7 +19,7 @@ let points = range(n).map(function() { return [randomX(), randomY()]; });
 
 const color = scaleLinear()
   .domain([0, 20])
-  .range(["white", "steelblue"])
+  .range(["rgba(0, 0, 0, 0)", "steelblue"])
   .interpolate(interpolateLab);
 
 const hexbin = d3hexbin().radius(20);
@@ -55,7 +55,7 @@ export default class DynamicHexbin extends React.Component {
     ));
 
     return (
-      <svg width={width} height={height} style={{backgroundColor: 'white'}}>
+      <svg width={width} height={height}>
         <g className="hexagons">
           {hexagons}
         </g>

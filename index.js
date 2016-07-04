@@ -52,7 +52,20 @@ class Page extends React.Component {
           <label><Radio value="Now" />now</label>
         </RadioGroup>
         {React.createElement(componentMap[this.state.selected])}
-        <Markdown source="Style inspired by [jlord/hello](https://github.com/jlord/hello)" />
+        <footer>
+          <div>
+            By <a href="http://joelburget.com">Joel Burget</a>
+          </div>
+          <div>
+            <a href="https://github.com/joelburget/d4">Github</a>
+          </div>
+        </footer>
+        <div>
+          <a className="jsorg" href="https://js.org" target="_blank" title="JS.ORG | JavaScript Community">
+            <img src="https://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/>
+          </a>
+          Style inspired by <a href="https://github.com/jlord/hello">jlord/hello</a>
+        </div>
       </div>
     );
   }
