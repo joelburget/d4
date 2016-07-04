@@ -2,7 +2,6 @@ import React from 'react';
 import poissonDiscSampler from 'poisson-disc-sampler';
 import {voronoi as d3Voronoi} from 'd3-voronoi';
 import {lab} from 'd3-color';
-import d3 from 'd3';
 
 const width = 960;
 const height = 500;

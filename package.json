@@ -8,10 +8,9 @@
   },
   "author": "Joel Burget <joelburget@gmail.com> (http://github.com/joelburget)",
   "license": "ISC",
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
+  "homepage": "https://github.com/joelburget/d4",
   "dependencies": {
     "aphrodite": "^0.4.0",
-    "d3": ">=4.0.0",
     "d3-array": "^1.0.0",
     "d3-color": "^1.0.0",
     "d3-drag": "^1.0.0",

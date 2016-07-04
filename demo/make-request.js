@@ -31,8 +31,28 @@ export default function makeRequest(dataSource, Component) {
       return status === DONE
         ? <Component data={cache[dataSource]} />
         : status === WAITING
-          ? <div style={{backgroundColor: 'green'}}>WAITING</div>
-          : <div style={{backgroundColor: 'red'}}>ERROR</div>;
+          ? (
+            <div
+              style={{
+                borderLeft: '5px solid #58c1aa',
+                padding: 20,
+                marginTop: 20,
+              }}
+            >
+              waiting...
+            </div>
+          )
+          : (
+            <div
+              style={{
+                borderLeft: '5px solid #c15861',
+                padding: 20,
+                marginTop: 20,
+              }}
+            >
+              Error fetching {dataSource}
+            </div>
+          );
     }
   });
 }

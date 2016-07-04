@@ -75,7 +75,7 @@ export default makeRequest('data/us.json', function TileMap({data: us}) {
   const style = {width, height, position: 'absolute', overflow: 'hidden'};
 
   return (
-    <div style={{position: 'relative'}}>
+    <div style={{position: 'relative', width, height}}>
       <div style={style}>
         {imgs}
       </div>

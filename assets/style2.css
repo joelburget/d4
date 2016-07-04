@@ -92,3 +92,7 @@ p code {
   background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 0px 0 5px rgba(0, 0, 0, 0.05);
 }
+
+.demo-group label {
+  display: block;
+}

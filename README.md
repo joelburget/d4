@@ -59,34 +59,8 @@ We replace the mutating `select`, `selectAll`, `enter`, `append`, `data`, `attr`
 
 Animation is more complicated, but again, React can help. By using keys and the `ReactCSSTransitionGroup`, TODO
 
-## Still using d3
+## Why we still need d3
 
 d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a [dozen d3 packages](https://github.com/joelburget/d4/blob/master/package.json). d3 is expecially useful for calculating layouts and colors.
 
 There are some pieces of d3 that I would love to use but aren't easily portable. For example, [d3-drag](https://github.com/d3/d3-drag) and [d3-zoom](https://github.com/d3/d3-zoom) smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg `selection.call(d3.zoom().on("zoom", zoomed));`).
-
-### What's here
-
-* Selections (-ish)
-* Transitions
-* Shape generation
-* Axes
-* Layouts
-
-### What's not
-
-* Scales
-* (Most) Array operations (get these from elsewhere)
-* Math (get from D3)
-* Loading external resources (get from D3)
-* String formatting
-* CSV formatting
-* Localization
-* Colors
-* Namespaces
-* Binding / dispatch helpers
-* Controls (eventually)
-* Time
-* Geography
-* Geometry
-* Behaviors
