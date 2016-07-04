@@ -7,11 +7,35 @@
   <body>
     <div class="wrapper">
       <div class="container" id="d4"></div>
-    <a class="jsorg" href="https://js.org" target="_blank" title="JS.ORG | JavaScript Community">
-      <img src="https://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/></a>
     </div>
     <link href="assets/style2.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/solarized-light.css">
+<script>
+(function(){
+
+  if ("performance" in window == false) {
+      window.performance = {};
+  }
+
+  Date.now = (Date.now || function () {  // thanks IE8
+    return new Date().getTime();
+  });
+
+  if ("now" in window.performance == false){
+
+    var nowOffset = Date.now();
+
+    if (performance.timing && performance.timing.navigationStart){
+      nowOffset = performance.timing.navigationStart
+    }
+
+    window.performance.now = function now(){
+      return Date.now() - nowOffset;
+    }
+  }
+
+})();
+</script>
     <script src="dist/bundle.js"></script>
 <style>
 .stroke {

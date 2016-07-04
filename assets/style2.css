@@ -62,9 +62,27 @@ h1 {
   line-height: 1.4;
 }
 
+footer {
+  display: table;
+  border-collapse: collapse;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.4;
+  justify-content: space-around;
+  margin: 200px 0 20px;
+  width: 100%;
+}
+
+footer div {
+  padding: 24px;
+  border: 3px solid #5896c1;
+  display: table-cell;
+}
+
 .jsorg {
   border-bottom: none;
-  margin: 12px;
+  margin-right: 12px;
 }
 
 .container {margin: 0 auto; max-width: 1100px; padding: 120px 12px 50px; overflow: auto;}
@@ -73,4 +91,8 @@ hr {border-bottom: 3px solid #5896c1;}
 p code {
   background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 0px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.demo-group label {
+  display: block;
 }
