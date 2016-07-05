@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/solarized-light.css">
 <script>
 (function(){
-
   if ("performance" in window == false) {
       window.performance = {};
   }
@@ -36,46 +35,15 @@
 
 })();
 </script>
-    <script src="dist/bundle.js"></script>
-<style>
-.stroke {
-  fill: none;
-  stroke: #000;
-  stroke-width: 3px;
-}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-.fill {
-  fill: #fff;
-}
-
-.graticule {
-  fill: none;
-  stroke: #777;
-  stroke-width: .5px;
-  stroke-opacity: .5;
-}
-
-.land {
-  fill: #222;
-}
-
-.boundary {
-  fill: none;
-  stroke: #fff;
-  stroke-width: .5px;
-}
-.bar {
-  fill: steelblue;
-}
-.button {
-  fill: red;
-}
-
-.hexagon {
-  fill: none;
-  stroke: #000;
-  stroke-width: .5px;
-}
-</style>
+  ga('create', 'UA-80356113-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script src="dist/bundle.js"></script>
   </body>
 </html>
