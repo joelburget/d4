@@ -27,8 +27,9 @@
     "markdown-it": "^7.0.0",
     "markdown-it-highlightjs": "^2.0.0",
     "poisson-disc-sampler": "^1.1.0",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-live-editor": "^5.0.0",
     "react-radio-group": "^3.0.1",
     "topojson": "^1.6.24",
     "uuid": "^2.0.1"

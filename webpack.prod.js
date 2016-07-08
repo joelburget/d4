@@ -18,12 +18,17 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel'],
-        exclude: path.join(__dirname, 'node_modules')
+        exclude: /node_modules|demo/,
       },
       {
         test: /\.json$/,
         loaders: ['json']
       }
     ]
+  },
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    module: 'empty',
   }
 };

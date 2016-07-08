@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {RadioGroup, Radio} from 'react-radio-group'
 
-import BarChart from './demo/bar';
-import Delaunay from './demo/delaunay-color-mesh';
-import DynamicBarChart from './demo/dynamic-bar';
-import DynamicHexbin from './demo/dynamic-hexbin';
-import PopulationChloropleth from './demo/population-chloropleth';
-import TileBoundingBox from './demo/tile-bounding-box';
-import Voronoi from './demo/voronoi-color-mesh';
-import Now from './demo/now';
+import BarChart from 'raw!./demo/bar';
+import Delaunay from 'raw!./demo/delaunay-color-mesh';
+import DynamicBarChart from 'raw!./demo/dynamic-bar';
+import DynamicHexbin from 'raw!./demo/dynamic-hexbin';
+import PopulationChloropleth from 'raw!./demo/population-chloropleth';
+import TileBoundingBox from 'raw!./demo/tile-bounding-box';
+import Voronoi from 'raw!./demo/voronoi-color-mesh';
+import Now from 'raw!./demo/now';
+
+import ReactPlayground from 'react-live-editor/live-editor';
 
 import Markdown from './md';
 import Readme from 'raw!./README.md'
@@ -82,7 +84,26 @@ class Page extends React.Component {
           <label><Radio value="Now" />now</label>
         </RadioGroup>
         <Markdown source={descriptions[this.state.selected]} />
-        {React.createElement(componentMap[this.state.selected])}
+        <ReactPlayground
+          // codeText={componentMap[this.state.selected]}
+          codeText=""
+          resolveModules={{
+            "d3-array": require('d3-array'),
+            "d3-hexbin": require('d3-hexbin'),
+            "d3-random": require('d3-random'),
+            "d3-scale": require('d3-scale'),
+            "d3-interpolate": require('d3-interpolate'),
+            "d3-geo": require('d3-geo'),
+            "d3-tile": require('d3-tile'),
+            "d3-color": require('d3-color'),
+            "d3-voronoi": require('d3-voronoi'),
+            "d3-time": require('d3-time'),
+            "poisson-disc-sampler": require('poisson-disc-sampler'),
+            react: require('react'),
+            topojson: require('topojson'),
+            "./make-request": require('./make-request'),
+          }}
+        />
         <footer>
           <div>
             <a href="https://github.com/joelburget/d4">Github</a>
