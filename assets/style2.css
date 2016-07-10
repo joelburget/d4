@@ -93,9 +93,26 @@ p code {
   box-shadow: 0 0px 0 5px rgba(0, 0, 0, 0.05);
 }
 
+pre {
+  font-size: 20px;
+}
+
 .demo-group label {
   display: block;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 10px;
 }
+
+/*
+.demo-group input[type="radio"]:checked ~ * {
+  border-bottom: 3px solid #5896c1;
+}
+
+.demo-group input[type="radio"] {
+  display: none;
+}
+*/
 
 .hljs {
   font-family: mononoki;
