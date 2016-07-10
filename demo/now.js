@@ -3,15 +3,13 @@ import {geoAzimuthalEquidistant, geoPath, geoGraticule} from 'd3-geo';
 import {utcDay} from 'd3-time';
 import topojson from 'topojson';
 
-import makeRequest from './make-request';
+import world from '../data/world-50m.json';
 
-// import world from '../data/world-50m.json';
-
-const width = 960;
-const height = 960;
+const width = 480;
+const height = 480;
 
 const projection = geoAzimuthalEquidistant()
-  .scale(150)
+  .scale(75)
   .translate([width / 2, height / 2])
   .clipAngle(180 - 1e-3)
   .rotate([0, 90])
@@ -22,7 +20,7 @@ const path = geoPath()
 
 const graticule = geoGraticule();
 
-export default makeRequest('data/world-50m.json', function World({data: world}) {
+export default function World() {
   const now = new Date();
   const today = utcDay(now);
   const translate1 = `translate(${width / 2}, ${height / 2})`;
@@ -57,4 +55,4 @@ export default makeRequest('data/world-50m.json', function World({data: world}) 
       </g>
     </svg>
   );
-});
+}

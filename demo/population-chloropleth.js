@@ -5,9 +5,7 @@ import {interpolateHcl} from 'd3-interpolate';
 import {geoPath} from 'd3-geo';
 import topojson from 'topojson';
 
-import makeRequest from './make-request';
-
-// import us from '../data/us-albers.json';
+import us from '../data/us-albers.json';
 
 const width = 960;
 const height = 500;
@@ -19,7 +17,7 @@ const color = scaleLog()
 const path = geoPath()
   .projection(null);
 
-export default makeRequest('data/us-albers.json', function Population({data: us}) {
+export default function Population() {
   const counties = topojson.feature(us, us.objects.counties).features;
 
   const densities = counties
@@ -44,4 +42,4 @@ export default makeRequest('data/us-albers.json', function Population({data: us}
       </g>
     </svg>
   );
-});
+}
