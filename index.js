@@ -75,11 +75,11 @@ class Page extends React.Component {
           selectedValue={this.state.selected}
           onChange={this.handleChange}
         >
-          <label><Radio value="DynamicHexbin" />dynamic hexbin</label>
-          <label><Radio value="PopulationChloropleth" />population chloropleth</label>
-          <label><Radio value="TileBoundingBox" />tile bounding box</label>
-          <label><Radio value="Voronoi" />voronoi color mesh</label>
-          <label><Radio value="Now" />now</label>
+          <label><Radio value="DynamicHexbin" /><span>dynamic hexbin</span></label>
+          <label><Radio value="PopulationChloropleth" /><span>population chloropleth</span></label>
+          <label><Radio value="TileBoundingBox" /><span>tile bounding box</span></label>
+          <label><Radio value="Voronoi" /><span>voronoi color mesh</span></label>
+          <label><Radio value="Now" /><span>now</span></label>
         </RadioGroup>
         <Markdown source={descriptions[this.state.selected]} />
         {React.createElement(componentMap[this.state.selected])}

@@ -57,7 +57,22 @@ function Mesh() {
 
 We replace the mutating `select`, `selectAll`, `enter`, `append`, `data`, `attr`, and `style` with familiar React rendering of the points.
 
-Animation is more complicated, but again, React can help. By using keys and the `ReactCSSTransitionGroup`, TODO
+Animation is more complicated, but again, React can help. By using keys and the `ReactCSSTransitionGroup`, it's possible to describe animations in CSS, rather than using d3's interpolation. I haven't verified the performance, but I expect CSS transition group animations to be faster, since they're browser-native and circumvent the JS engine. For example:
+
+```javascript
+d3.select("body")
+    .style("color", "green") // make the body green
+  .transition()
+    .style("color", "red"); // then transition to red
+```
+
+Becomes (specifying the duration, which the original left out):
+
+```css
+body {
+  transition: color 250ms;
+}
+```
 
 ## Why we still need d3
 
@@ -67,4 +82,4 @@ There are some pieces of d3 that I would love to use but aren't easily portable.
 
 ## Demos
 
-In all the demos we continue to use d3, but we're forced by react to separate the logic from the display declaration.
+In all the demos we continue to use d3, but we're forced by React to separate the logic from the display declaration. Take a look at the source for a few!

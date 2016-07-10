@@ -28,7 +28,14 @@ export default class DynamicHexbin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {points};
-    window.setInterval(() => { this._update(); }, 20);
+  }
+
+  componentDidMount() {
+    this.handle = window.setInterval(() => { this._update(); }, 20);
+  }
+
+  componentWillUnmount() {
+    window.clearInterval(this.handle);
   }
 
   _update() {
@@ -36,7 +43,7 @@ export default class DynamicHexbin extends React.Component {
     randomX = randomNormal(width / 2 + 80 * Math.cos(theta), 80),
     randomY = randomNormal(height / 2 + 80 * Math.sin(theta), 80);
 
-    for (var j = 0; j < k; ++j) {
+    for (let j = 0; j < k; ++j) {
       i = (i + 1) % n;
       points[i][0] = randomX();
       points[i][1] = randomY();
