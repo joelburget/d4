@@ -78,7 +78,11 @@ body {
 
 d3 does [a lot](https://github.com/d3/d3/blob/master/API.md) and we can continue to use most of it. In fact, these demos collectively use a [dozen d3 packages](https://github.com/joelburget/d4/blob/master/package.json). d3 is expecially useful for calculating layouts and colors.
 
+## Future Work
+
 There are some pieces of d3 that I would love to use but aren't easily portable. For example, [d3-drag](https://github.com/d3/d3-drag) and [d3-zoom](https://github.com/d3/d3-zoom) smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg `selection.call(d3.zoom().on("zoom", zoomed));`).
+
+I'm curious about the performance of this approach. I haven't benchmarked yet, but my intuition is that it should be fast -- as fast as React's reconciliation. However, I don't know how that part of d3 is implemented, so maybe d3 is actually faster.
 
 ## Demos
 
