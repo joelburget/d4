@@ -11,31 +11,6 @@
     <link href="assets/style2.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/solarized-light.css">
 <script>
-(function(){
-  if ("performance" in window == false) {
-      window.performance = {};
-  }
-
-  Date.now = (Date.now || function () {  // thanks IE8
-    return new Date().getTime();
-  });
-
-  if ("now" in window.performance == false){
-
-    var nowOffset = Date.now();
-
-    if (performance.timing && performance.timing.navigationStart){
-      nowOffset = performance.timing.navigationStart
-    }
-
-    window.performance.now = function now(){
-      return Date.now() - nowOffset;
-    }
-  }
-
-})();
-</script>
-<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
