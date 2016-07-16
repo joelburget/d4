@@ -6,7 +6,97 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="container" id="d4"></div>
+      <div class="container">
+
+<h1>d4 -- <strong>Declarative</strong> Data-Driven Documents</h1>
+<h2>What is it?</h2>
+<p>d4 is an experiment in using React to produce data-driven documents (ala d3)
+that are performant and understandable. This is <em>not</em> a library, but rather a
+demonstration that it's possible (and preferable) to use React instead of the
+core of d3.</p>
+<h2>Why?</h2>
+<p>d3 can produce fantastic results. Look no further than <a href="https://bl.ocks.org/mbostock">Mike Bostock's
+blocks</a> for examples. Unfortunately, I
+always find d3 code surprisingly difficult to understand and extend, in the
+same way I used to find code difficult to approach before React encouraged a
+declarative style. By using React (which can render SVGs, no problem) for
+data-driven documents, we can improve comprehension and performance and use
+tools from the React ecosystem.</p>
+<h2>How does it work?</h2>
+<p>We replace the core d3 interaction of <a href="https://medium.com/@c_behrens/enter-update-exit-6cafc6014c36#.yty2g8g0e">Enter, Update, Exit</a> with, well, <code>render</code>. Let's first see an example.</p>
+<h3>d3</h3>
+<pre><code class="hljs language-javascript"><span class="hljs-keyword">var</span> svg = d3.select(<span class="hljs-string">"body"</span>).append(<span class="hljs-string">"svg"</span>)
+    .attr(<span class="hljs-string">"width"</span>, width)
+    .attr(<span class="hljs-string">"height"</span>, height);
+
+svg.selectAll(<span class="hljs-string">"path"</span>)
+    .data(voronoi(samples).polygons())
+  .enter().append(<span class="hljs-string">"path"</span>)
+    .attr(<span class="hljs-string">"d"</span>, d =&gt; <span class="hljs-string">`M<span class="hljs-subst">${d.join("L")}</span>Z`</span>)
+    .style(<span class="hljs-string">"fill"</span>, d =&gt; color(d.point))
+    .style(<span class="hljs-string">"stroke"</span>, d =&gt; color(d.point));
+</code></pre>
+<h3>d4</h3>
+<pre><code class="hljs language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Mesh</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> paths = voronoi(samples)
+    .polygons()
+    .map(sample =&gt; (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">path</span>
+        <span class="hljs-attribute">d</span>=<span class="hljs-value">{`M${sample.join('L')}Z`}</span>
+        <span class="hljs-attribute">fill</span>=<span class="hljs-value">{color(sample.data)}</span>
+        <span class="hljs-attribute">stroke</span>=<span class="hljs-value">{color(sample.data)}</span>
+      /&gt;</span>
+    )</span>);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">{width}</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">{height}</span>&gt;</span>
+      {paths}
+    <span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>
+  )</span>;
+}
+</code></pre>
+<p>We replace the mutating <code>select</code>, <code>selectAll</code>, <code>enter</code>, <code>append</code>, <code>data</code>, <code>attr</code>, and <code>style</code> with familiar React rendering of the points.</p>
+<p>Animation is more complicated, but again, React can help. By using keys and the <code>ReactCSSTransitionGroup</code>, it's possible to describe animations in CSS, rather than using d3's interpolation. I haven't verified the performance, but I expect CSS transition group animations to be faster, since they're browser-native and avoid the JS engine. For example:</p>
+<pre><code class="hljs language-javascript">d3.select(<span class="hljs-string">"body"</span>)
+    .style(<span class="hljs-string">"color"</span>, <span class="hljs-string">"green"</span>) <span class="hljs-comment">// make the body green</span>
+  .transition()
+    .style(<span class="hljs-string">"color"</span>, <span class="hljs-string">"red"</span>); <span class="hljs-comment">// then transition to red</span>
+</code></pre>
+<p>Becomes (specifying the duration, which the original left out):</p>
+<pre><code class="hljs language-css"><span class="hljs-tag">body</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">transition</span>:<span class="hljs-value"> color <span class="hljs-number">250ms</span></span></span>;
+}</span>
+</code></pre>
+<h2>Why we still need d3</h2>
+<p>d3 does <a href="https://github.com/d3/d3/blob/master/API.md">a lot</a> and we can continue to use most of it. In fact, these demos collectively use a <a href="https://github.com/joelburget/d4/blob/master/package.json">dozen d3 packages</a>. d3 is especially useful for calculating layouts and colors.</p>
+<h2>Future Work</h2>
+<p>There are some pieces of d3 that I would love to use but aren't easily portable. For example, <a href="https://github.com/d3/d3-drag">d3-drag</a> and <a href="https://github.com/d3/d3-zoom">d3-zoom</a> smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg <code>selection.call(d3.zoom().on("zoom", zoomed));</code>).</p>
+<p>I'm curious about the performance of this approach. I haven't benchmarked yet, but my intuition is that it should be fast -- as fast as React's reconciliation. However, I don't know how that part of d3 is implemented, so maybe d3 is actually faster.</p>
+<p>A small thing -- it's possible to use only parts of d3. For example: <code>import {voronoi as d3Voronoi} from 'd3-voronoi';</code> instead of <code>d3.voronoi</code>, and <code>import {lab} from 'd3-color';</code> instead of <code>d3.color.lab</code>), but nobody uses it that way, so examples of the import style are hard to find (and it's often not obvious which name will be exported (<code>d3-geo</code> exports <code>geoArea</code> and <code>geoBounds</code> rather than <code>area</code> and <code>bounds</code>).</p>
+<p>Besides the five completed demos, I've also started working on a few others, but I'm deferring them to get this article published.</p>
+<h2>Demos</h2>
+<p>In all the demos we continue to use some d3 utilities, but use React to separate the logic from the display declaration. Take a look at the source for a few!</p>
+
+<div id="inject"></div>
+
+        <p>
+          Thanks for reading! Please get involved by letting me know what you think, performance testing, or making some (interaction and animation) <a href="https://github.com/joelburget/d4">demos</a>.
+        </p>
+        <footer>
+          <div>
+            <a href="https://github.com/joelburget/d4">Github</a>
+          </div>
+          <div>
+            By <a href="http://joelburget.com">Joel Burget</a>
+          </div>
+        </footer>
+        <div>
+          <a className="jsorg" href="https://js.org" target="_blank" title="JS.ORG | JavaScript Community">
+            <img src="https://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/>
+          </a>
+          Style inspired by <a href="https://github.com/jlord/hello">jlord/hello</a>
+        </div>
+      </div>
     </div>
     <link href="assets/style2.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/solarized-light.css">

@@ -12,7 +12,6 @@ import Voronoi from './demo/voronoi-color-mesh';
 import Now from './demo/now';
 
 import Markdown from './md';
-import Readme from 'raw!./README.md'
 
 const descriptions = {
   DynamicHexbin: `
@@ -53,7 +52,7 @@ const componentMap = {
   Now,
 };
 
-class Page extends React.Component {
+class Demos extends React.Component {
   constructor() {
     super();
     this.state = {selected: 'DynamicHexbin'};
@@ -67,7 +66,6 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <Markdown source={Readme} />
         <h2>Select Demo</h2>
         <RadioGroup
           className="demo-group"
@@ -83,26 +81,9 @@ class Page extends React.Component {
         </RadioGroup>
         <Markdown source={descriptions[this.state.selected]} />
         {React.createElement(componentMap[this.state.selected])}
-        <p>
-          Thanks for reading! Please get involved by letting me know what you think, performance testing, or making some (interaction and animation) <a href="https://github.com/joelburget/d4">demos</a>.
-        </p>
-        <footer>
-          <div>
-            <a href="https://github.com/joelburget/d4">Github</a>
-          </div>
-          <div>
-            By <a href="http://joelburget.com">Joel Burget</a>
-          </div>
-        </footer>
-        <div>
-          <a className="jsorg" href="https://js.org" target="_blank" title="JS.ORG | JavaScript Community">
-            <img src="https://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/>
-          </a>
-          Style inspired by <a href="https://github.com/jlord/hello">jlord/hello</a>
-        </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Page />, document.getElementById('d4'));
+ReactDOM.render(<Demos />, document.getElementById('inject'));

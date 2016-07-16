@@ -1,11 +1,10 @@
 import React from 'react';
 import MarkdownIt from 'markdown-it';
-import highlightjs from 'markdown-it-highlightjs';
 
 export default class Markdown extends React.Component {
   constructor(props) {
     super(props);
-    this.markdown = MarkdownIt().use(highlightjs);
+    this.markdown = MarkdownIt();
   }
 
   render() {
