@@ -56,7 +56,7 @@ const componentMap = {
 class Page extends React.Component {
   constructor() {
     super();
-    this.state = {selected: 'Now'};
+    this.state = {selected: 'DynamicHexbin'};
     this.handleChange = selected => this._handleChange(selected);
   }
 
