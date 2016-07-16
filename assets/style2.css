@@ -146,6 +146,13 @@ pre {
   stroke: #fff;
   stroke-width: .5px;
 }
+
+.night {
+  stroke: steelblue;
+  fill: steelblue;
+  fill-opacity: .3;
+}
+
 .bar {
   fill: steelblue;
 }
