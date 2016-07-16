@@ -36,7 +36,7 @@ A translation of [Color Mesh](https://bl.ocks.org/mbostock/99049112373e12709381)
 Compare [the original](https://bl.ocks.org/mbostock/99049112373e12709381) to the [d4 version](https://github.com/joelburget/d4/blob/master/demo/voronoi-color-mesh.js)
 `,
   Now: `
-A translation of [Now](https://bl.ocks.org/mbostock/9231621) -- A south polar azimuthal equidistant projection, oriented so that noon is as 12 o'clock, as in [xkcd:1335](http://xkcd.com/1335/). The map updates continuously.
+A translation of [Now + Solar Terminator](https://bl.ocks.org/mbostock/9232962) -- A south polar azimuthal equidistant projection, oriented so that noon is as 12 o'clock, as in [xkcd:1335](http://xkcd.com/1335/). The map updates continuously.
 
 Compare [the original](https://bl.ocks.org/mbostock/9232962) to the [d4 version](https://github.com/joelburget/d4/blob/master/demo/now.js)
 `,
@@ -79,10 +79,13 @@ class Page extends React.Component {
           <label><Radio value="PopulationChloropleth" /><span>population chloropleth</span></label>
           <label><Radio value="TileBoundingBox" /><span>tile bounding box</span></label>
           <label><Radio value="Voronoi" /><span>voronoi color mesh</span></label>
-          <label><Radio value="Now" /><span>now</span></label>
+          <label><Radio value="Now" /><span>now + solar terminator</span></label>
         </RadioGroup>
         <Markdown source={descriptions[this.state.selected]} />
         {React.createElement(componentMap[this.state.selected])}
+        <p>
+          Thanks for reading! Please get involved by letting me know what you think, performance testing, or making some (interaction and animation) <a href="https://github.com/joelburget/d4">demos</a>.
+        </p>
         <footer>
           <div>
             <a href="https://github.com/joelburget/d4">Github</a>
