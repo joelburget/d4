@@ -280,6 +280,11 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
     font-size: 30px;
   }
 
+  .demo-group label {
+    font-size: 34px;
+    margin: 40px 10px;
+  }
+
   body {
     line-height: 2.4em;
   }
