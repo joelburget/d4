@@ -8,7 +8,7 @@
     <div class="wrapper">
       <div class="container">
 
-<h1>d4 -- <strong>Declarative</strong> Data-Driven Documents</h1>
+<h1>d4 — <strong>Declarative</strong> Data-Driven Documents</h1>
 <h2>What is it?</h2>
 <p>d4 is an experiment in using React to produce data-driven documents (ala d3)
 that are performant and understandable. This is <em>not</em> a library, but rather a
@@ -71,8 +71,8 @@ svg.selectAll(<span class="hljs-string">"path"</span>)
 <p>d3 does <a href="https://github.com/d3/d3/blob/master/API.md">a lot</a> and we can continue to use most of it. In fact, these demos collectively use a <a href="https://github.com/joelburget/d4/blob/master/package.json">dozen d3 packages</a>. d3 is especially useful for calculating layouts and colors.</p>
 <h2>Future Work</h2>
 <p>There are some pieces of d3 that I would love to use but aren't easily portable. For example, <a href="https://github.com/d3/d3-drag">d3-drag</a> and <a href="https://github.com/d3/d3-zoom">d3-zoom</a> smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg <code>selection.call(d3.zoom().on("zoom", zoomed));</code>). Ideally we could decouple these libraries from selections, but it might also be possible to mock the selection interface they expect while still using React.</p>
-<p>I'm curious about the performance of this approach. I haven't benchmarked yet, but my intuition is that it should be fast -- as fast as React's reconciliation. However, I don't know how that part of d3 is implemented, so maybe d3 is actually faster.</p>
-<p>A small thing -- it's possible to use only parts of d3. For example: <code>import {voronoi as d3Voronoi} from 'd3-voronoi';</code> instead of <code>d3.voronoi</code>, and <code>import {lab} from 'd3-color';</code> instead of <code>d3.color.lab</code>), but nobody uses it that way, so examples of the import style are hard to find (and it's often not obvious which name will be exported (<code>d3-geo</code> exports <code>geoArea</code> and <code>geoBounds</code> rather than <code>area</code> and <code>bounds</code>).</p>
+<p>I'm curious about the performance of this approach. I haven't benchmarked yet, but my intuition is that it should be fast — as fast as React's reconciliation. However, I don't know how that part of d3 is implemented, so maybe d3 is actually faster.</p>
+<p>A small thing — it's possible to use only parts of d3. For example: <code>import {voronoi as d3Voronoi} from 'd3-voronoi';</code> instead of <code>d3.voronoi</code>, and <code>import {lab} from 'd3-color';</code> instead of <code>d3.color.lab</code>), but nobody uses it that way, so examples of the import style are hard to find (and it's often not obvious which name will be exported (<code>d3-geo</code> exports <code>geoArea</code> and <code>geoBounds</code> rather than <code>area</code> and <code>bounds</code>).</p>
 <p>Besides the five completed demos, I've also started working on a few others, but I'm deferring them to get this article published.</p>
 <h2>Demos</h2>
 <p>In all the demos we continue to use some d3 utilities, but use React to separate the logic from the display declaration. Take a look at the source for a few!</p>
