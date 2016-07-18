@@ -94,3 +94,7 @@ Besides the five completed demos, I've also started working on a few others, but
 ## Demos
 
 In all the demos we continue to use some d3 utilities, but use React to separate the logic from the display declaration. Take a look at the source for a few!
+
+## License
+Copyright (c) 2016, Joel Burget
+All rights reserved.
