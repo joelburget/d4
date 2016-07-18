@@ -6,7 +6,7 @@ import BarChart from './demo/bar';
 import Delaunay from './demo/delaunay-color-mesh';
 import DynamicBarChart from './demo/dynamic-bar';
 import DynamicHexbin from './demo/dynamic-hexbin';
-import PopulationChloropleth from './demo/population-chloropleth';
+import PopulationChoropleth from './demo/population-choropleth';
 import TileBoundingBox from './demo/tile-bounding-box';
 import Voronoi from './demo/voronoi-color-mesh';
 import Now from './demo/now';
@@ -19,10 +19,10 @@ Computing hexbins from a constantly-fluctuating sample of 2,000 random points.
 
 Compare [the original](https://bl.ocks.org/mbostock/7833311) to the [d4 version](https://github.com/joelburget/d4/blob/master/demo/dynamic-hexbin.js)
 `,
-  PopulationChloropleth: `
-A translation of [Population Chloropleth](https://bl.ocks.org/mbostock/6320825) (shaded by population density)
+  PopulationChoropleth: `
+A translation of [Population Choropleth](https://bl.ocks.org/mbostock/6320825) (shaded by population density)
 
-Compare [the original](https://bl.ocks.org/mbostock/6320825) to the [d4 version](https://github.com/joelburget/d4/blob/master/demo/population-chloropleth.js)
+Compare [the original](https://bl.ocks.org/mbostock/6320825) to the [d4 version](https://github.com/joelburget/d4/blob/master/demo/population-choropleth.js)
 `,
   TileBoundingBox: `
 A translation of [Tile by Bounding Box](https://bl.ocks.org/mbostock/eb0c48375fcdcdc00c54a92724733d0d) -- A demo of d3-tile when projecting to fit a bounding box.
@@ -46,7 +46,7 @@ const componentMap = {
   // Delaunay,
   // DynamicBarChart,
   DynamicHexbin,
-  PopulationChloropleth,
+  PopulationChoropleth,
   TileBoundingBox,
   Voronoi,
   Now,
@@ -74,7 +74,7 @@ class Demos extends React.Component {
           onChange={this.handleChange}
         >
           <label><Radio value="DynamicHexbin" /><span>dynamic hexbin</span></label>
-          <label><Radio value="PopulationChloropleth" /><span>population chloropleth</span></label>
+          <label><Radio value="PopulationChoropleth" /><span>population choropleth</span></label>
           <label><Radio value="TileBoundingBox" /><span>tile bounding box</span></label>
           <label><Radio value="Voronoi" /><span>voronoi color mesh</span></label>
           <label><Radio value="Now" /><span>now + solar terminator</span></label>
