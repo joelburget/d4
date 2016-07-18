@@ -70,7 +70,7 @@ svg.selectAll(<span class="hljs-string">"path"</span>)
 <h2>Why we still need d3</h2>
 <p>d3 does <a href="https://github.com/d3/d3/blob/master/API.md">a lot</a> and we can continue to use most of it. In fact, these demos collectively use a <a href="https://github.com/joelburget/d4/blob/master/package.json">dozen d3 packages</a>. d3 is especially useful for calculating layouts and colors.</p>
 <h2>Future Work</h2>
-<p>There are some pieces of d3 that I would love to use but aren't easily portable. For example, <a href="https://github.com/d3/d3-drag">d3-drag</a> and <a href="https://github.com/d3/d3-zoom">d3-zoom</a> smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg <code>selection.call(d3.zoom().on("zoom", zoomed));</code>).</p>
+<p>There are some pieces of d3 that I would love to use but aren't easily portable. For example, <a href="https://github.com/d3/d3-drag">d3-drag</a> and <a href="https://github.com/d3/d3-zoom">d3-zoom</a> smooth over a lot of the quirks you'd have to deal with when implementing dragging and zooming, but they're only designed to work with d3 selections (eg <code>selection.call(d3.zoom().on("zoom", zoomed));</code>). Ideally we could decouple these libraries from selections, but it might also be possible to mock the selection interface they expect while still using React.</p>
 <p>I'm curious about the performance of this approach. I haven't benchmarked yet, but my intuition is that it should be fast -- as fast as React's reconciliation. However, I don't know how that part of d3 is implemented, so maybe d3 is actually faster.</p>
 <p>A small thing -- it's possible to use only parts of d3. For example: <code>import {voronoi as d3Voronoi} from 'd3-voronoi';</code> instead of <code>d3.voronoi</code>, and <code>import {lab} from 'd3-color';</code> instead of <code>d3.color.lab</code>), but nobody uses it that way, so examples of the import style are hard to find (and it's often not obvious which name will be exported (<code>d3-geo</code> exports <code>geoArea</code> and <code>geoBounds</code> rather than <code>area</code> and <code>bounds</code>).</p>
 <p>Besides the five completed demos, I've also started working on a few others, but I'm deferring them to get this article published.</p>
@@ -80,7 +80,7 @@ svg.selectAll(<span class="hljs-string">"path"</span>)
 <div id="inject">Demos loading...</div>
 
         <p>
-          Thanks for reading! Please get involved by letting me know what you think, performance testing, or making some (interaction and animation) <a href="https://github.com/joelburget/d4">demos</a>.
+          Thanks for reading! Please get involved by letting me know what you think, performance testing, or making some (interaction and animation) <a href="https://github.com/joelburget/d4/demo">demos</a>.
         </p>
         <p>
         Thanks to <a href="http://www.sydneyrossmanreich.com">Sydney Rossman-Reich</a>, <a href="http://thewebivore.com">Pam Selle</a>, <a href="https://x.st/">Harold Cooper</a>, <a href="http://people.eecs.berkeley.edu/~stephentu/">Stephen Tu</a>, and <a href="https://thomasboyt.com/">Thomas Boyt</a> for reading drafts of this.

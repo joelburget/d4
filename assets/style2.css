@@ -45,7 +45,7 @@ margin: 0 auto; line-height: 2em; box-sizing: border-box; color: #333; overflow:
 
 body, html {height: 100%;}
 
-.wrapper {box-sizing: border-box; height: 100%; overflow: auto; }
+.wrapper {box-sizing: border-box; height: 100%; }
 
 
 a {text-decoration: none; color: #333; border-bottom: 3px solid #5896c1;}
@@ -90,7 +90,7 @@ footer div {
   margin-right: 12px;
 }
 
-.container {margin: 0 auto; max-width: 1100px; padding: 120px 12px 50px; overflow: auto;}
+.container {margin: 0 auto; max-width: 1100px; padding: 120px 12px 50px;}
 hr {border-bottom: 3px solid #5896c1;}
 
 p code {
@@ -278,6 +278,11 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 @media only screen and (max-device-width : 400px) {
   pre {
     font-size: 30px;
+  }
+
+  .demo-group label {
+    font-size: 34px;
+    margin: 40px 10px;
   }
 
   body {
